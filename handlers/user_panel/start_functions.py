@@ -1,5 +1,6 @@
 from aiogram import  F, types,Router
 from aiogram.filters import Command
+from keyboard.inline import about_us_inline_keyboard
 
 start_functions_router = Router()
 
@@ -36,4 +37,11 @@ about_us_text = (
 @start_functions_router.message(Command("about_us"))
 async def about_us(message: types.Message):
     await message.answer_photo(photo=types.FSInputFile("media/logo.jpg"),
-                               caption=about_us_text, parse_mode="Markdown")
+                               caption=about_us_text,
+                               parse_mode="Markdown",
+                               reply_markup=about_us_inline_keyboard())
+
+
+
+
+
